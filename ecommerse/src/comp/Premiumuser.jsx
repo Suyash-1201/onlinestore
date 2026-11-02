@@ -36,8 +36,8 @@ show(!popup)
   async function payNow() {
     try {
       // 1. Create order in Spring Boot
-      const req = await axios.post(
-        `${API}/createorder`,
+      const req = await Api.post(
+        `/user/createorder`,
         { amount: 1500 }
       );
 

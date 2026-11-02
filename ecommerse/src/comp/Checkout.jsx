@@ -4,7 +4,7 @@ import Mycontext from "../Mycontext";
 import { useNavigate } from "react-router-dom";
 import Api from "../Api";
 
-const API = "http://localhost:8080/user";
+
 
 export default function Checkout() {
 
@@ -38,8 +38,8 @@ show(!popup)
   async function payNow() {
     try {
       // 1. Create order in Spring Boot
-      const req = await axios.post(
-        `${API}/createorder`,
+      const req = await Api.post(
+        `/user/createorder`,
         { amount: Number(total) }
       );
 
@@ -69,8 +69,8 @@ show(!popup)
         handler: async function (response) {
           // 4. Send payment details to Spring Boot
           try {
-            const result = await axios.post(
-              `${API}/verify/payment`,
+            const result = await Api.post(
+              `/user/verify/payment`,
               {
                 number:num,
                 razorpayorderid:
