@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -224,13 +226,15 @@ public class usercontroller {
 		
 		String token=jwtgenerate.generatejwt(authentication.getName());
 		
-		Cookie cookie=new Cookie("accessToken", token);
-		cookie.setHttpOnly(true);
-		cookie.setSecure(true);
-		cookie.setPath("/");
-		cookie.setMaxAge(60*60);
-		
-		http.addCookie(cookie);
+		ResponseCookie cookie = ResponseCookie.from("accessToken", token)
+		        .httpOnly(true)
+		        .secure(true)
+		        .path("/")
+		        .maxAge(60 * 60)
+		        .sameSite("None")
+		        .build();
+
+		http.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 		
 		return ResponseEntity.ok(Map.of("message","Login successfull","number",req.getNumber(),"role",res.getRole()));
 		
