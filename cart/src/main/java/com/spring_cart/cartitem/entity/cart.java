@@ -13,16 +13,11 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(
-		sequenceName = "seq_cart",
-		name = "cart",
-		initialValue = 101,
-		allocationSize = 1
-		)
+
 public class cart {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "cart")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cartid;
 	@OneToOne
 	@JsonIgnore

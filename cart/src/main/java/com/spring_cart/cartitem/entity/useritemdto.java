@@ -1,7 +1,10 @@
 package com.spring_cart.cartitem.entity;
 
+import jakarta.persistence.Column;
+
 public class useritemdto {
 	
+	@Column(name = "`number`")
 	private long number;
 	private int prodid;
 	private int stock;

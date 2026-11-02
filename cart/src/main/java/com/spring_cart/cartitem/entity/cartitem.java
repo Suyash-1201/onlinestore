@@ -9,17 +9,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(
-		sequenceName = "seq_cartitem",
-		name = "cartitem",
-		initialValue = 1001,
-		allocationSize = 1
-		)
+
 
 public class cartitem {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "cartitem")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int itemid;
 	@ManyToOne
 	@JsonIgnore

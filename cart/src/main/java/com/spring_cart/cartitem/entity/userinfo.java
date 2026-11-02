@@ -22,7 +22,7 @@ public class userinfo {
 	private long uid;
 	private String uname;
 	private String role;
-	@Column(nullable = false)
+	@Column(nullable = false,name = "`number`")
 	private long number;
 	private String pass;
 	@OneToOne(mappedBy = "user")

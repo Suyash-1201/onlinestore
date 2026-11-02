@@ -2,6 +2,7 @@ package com.spring_cart.cartitem.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class orders {
 	private int itemid;
 	private int cartid;
 	private int prodid;
+	@Column(name = "`stock`")
 	private int stock;
 	private String stutus;
 	private String payfor;
