@@ -64,12 +64,12 @@ function App() {
         
 
         <Route element={<Adminroute/>}>
-       
+        <Route path='/adminotp' element={<Adminotp/>}/>
+         <Route path='/adminsignup' element={<Adminsignup/>}/>
         <Route path='/adminpage' element={<Adminpage/>}/>
         </Route>
 
-          <Route path='/adminotp' element={<Adminotp/>}/>
-         <Route path='/adminsignup' element={<Adminsignup/>}/>
+         
         
          {/* public route */}
         <Route path='/signup' element={<Signup/>}/>
