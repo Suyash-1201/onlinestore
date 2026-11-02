@@ -1,0 +1,180 @@
+html.signup-html-override,
+body.signup-body-override {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  height: 100%;
+  overflow-x: hidden;
+}
+/* --- Container Setup --- */
+.sign-box {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8; 
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  
+}
+
+/* --- The Card with Lift Effect --- */
+.sign-up {
+  width: 100%;
+  max-width: 420px;
+  padding: 60px 45px;
+  background: #ffffff;
+  border-radius: 12px; /* Slightly softened for the shadow look */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  
+  /* Initial Shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  
+  /* Smooth Transition for the "Lift" */
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: default;
+}
+.res-err{
+  color: red;
+}
+
+
+
+/* Hover Effect: Scale up, Translate up, and Deepen Shadow */
+.sign-up:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Typography --- */
+.sign-up h1 {
+  color: #1a1a1a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* --- Inputs with Inset Effect --- */
+.sign-up input {
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid #eee;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  
+  /* Smooth focus transition */
+  transition: all 0.3s ease;
+}
+
+.sign-up input:hover {
+  border-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.sign-up input:focus {
+  border-color: #c5a059;
+  background: #fff;
+  /* Glow + Inset shadow combo */
+  box-shadow: 0 5px 15px rgba(197, 160, 89, 0.1), inset 0 0 0 1px rgba(197, 160, 89, 0.1);
+  transform: translateY(-2px);
+}
+
+/* --- Link --- */
+.sign-up a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.sign-up a:hover {
+  color: #c5a059;
+  transform: scale(1.05);
+}
+
+/* --- The Action Button --- */
+.sign-up button {
+  width: 100%;
+  padding: 18px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  
+  /* Initial State */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up button:hover {
+  background: #c5a059;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(197, 160, 89, 0.3);
+}
+
+.sign-up button:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 5px 10px rgba(197, 160, 89, 0.2);
+}
+
+/* --- Responsive Design --- */
+
+@media (max-width: 500px) {
+  .sign-box {
+    padding: 10px;
+  }
+
+  .sign-up p{
+    width: 100%;
+    text-align:left;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow-wrap:normal;
+    word-break: normal;
+   
+  }
+
+  .sign-up {
+    padding: 40px 25px;
+    border-radius: 20px;
+    width: 85%;
+  }
+  
+  /* Disable scale effect on mobile for better touch performance */
+  .sign-up:hover {
+    transform: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  }
+
+  .sign-up h1 {
+    font-size: 1.6rem;
+  }
+  
+  .sign-up input {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
+@media(max-height:1024px) {
+      .sign-box {
+      
+        background-color: white;
+    margin-bottom: 30vw;
+  }
+}

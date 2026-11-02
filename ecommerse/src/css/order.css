@@ -1,0 +1,107 @@
+.form-box{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f5f7fb;
+}
+
+/* Form Card */
+.form-container{
+  
+  width: 100%;
+  max-width: 90vw;
+  margin: 40px auto;
+  padding: 35px 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+/* Heading */
+.form-container h2{
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Form layout */
+.form-container form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.form-container input{
+  width: 100%;
+  padding: 12px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-container input:focus{
+  outline: none;
+  border-color: #3399cc;
+  box-shadow: 0 0 4px rgba(51,153,204,0.3);
+}
+
+/* Address field */
+.form-container .add{
+  height: 60px;
+}
+
+/* Button */
+.form-container button{
+  margin-top: 10px;
+  padding: 13px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3399cc;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-container button:hover{
+  background-color: #287ea8;
+}
+
+/* Responsive */
+
+@media (max-width:500px){
+
+  .form-box{
+  height: 170vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f5f7fb;
+  transform: translateY(10%);
+}
+
+  .form-container{
+    margin: 20px;
+    padding: 25px 20px;
+  }
+
+  .form-container h2{
+    font-size: 20px;
+  }
+
+  .form-container input{
+    font-size: 14px;
+  }
+
+  .form-container button{
+    font-size: 15px;
+  }
+
+}

@@ -1,0 +1,325 @@
+
+
+/* Loading  */
+
+.not-load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  font-size: 16px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #000;
+  transform: translateY(250px);
+ animation: load 1s forwards infinite;
+  
+}
+.filter-box{
+ 
+  font-weight: bolder;
+  transform: translateX(-2.6vw);
+  margin-bottom: 1vw;
+  width: 10vw;
+  padding: 2px 0;
+  border-radius: 5px;
+}
+
+.filter-box:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+}
+
+.filter-box:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+
+.upper {
+  padding: 70px 5% 40px;
+  text-align: center;
+}
+
+.upper h1 {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.upper h3 {
+  font-size: clamp(1rem, 5vw, 2rem); 
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* Back Button */
+.fashion-back-btn {
+  width: 25px;
+  cursor: pointer;
+  z-index: 20;
+  transform: translateY(-100px);
+  margin-left: 6vw;
+}
+
+/* Product Grid - The "No Overlap" Fix */
+.all-fashion {
+  padding: 0 5% 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.div {
+  display: grid;
+  /* min(100%, 250px) prevents the card from being wider than the screen on tiny phones */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 40px 24px;
+  width: 100%;
+}
+
+/* Product Card */
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden; /* Contains all children */
+}
+
+/* Image Container */
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.2;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15%; /* Percentage padding keeps it responsive */
+  box-sizing: border-box;
+}
+
+.img-wrapper .img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.box:hover .img {
+  transform: scale(1.1);
+}
+
+/* Badges */
+.dis-cat {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.dis {
+  font-size: 9px;
+  font-weight: 800;
+  color: #fff;
+  background: #000;
+  padding: 4px 8px;
+}
+.cat{
+    font-size: 10px;
+  letter-spacing: 4px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.box-heart {
+  width: 18px;
+  cursor: pointer;
+}
+
+/* Text Content */
+.box h1 { /* Brand */
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  margin: 15px 0 5px;
+  letter-spacing: 1px;
+}
+
+.content h3 { /* Product Name */
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 5px;
+  /* Prevents text from pushing card width */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content h1 { /* Price */
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* Button */
+.cart-btn {
+  margin-top: 15px;
+}
+
+.cart-btn .addcart1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px 14px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addcart1:hover {
+  background: transparent;
+  color: #000;
+}
+
+.premium-btn {
+  text-transform: uppercase;
+  margin-top: 5px;
+  position: relative;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+  background-size: 300% 300%;
+  border: 1px solid #e6ca65;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(191, 149, 63, 0.4),
+              0 8px 10px -6px rgba(191, 149, 63, 0.3);
+  transition: all 0.3s ease;
+  animation: goldGradient 6s ease infinite;
+}
+
+/* Shine sweep effect across the button */
+.premium-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.premium-btn:hover::before {
+  left: 100%;
+}
+
+/* Hover & Active States */
+.premium-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -5px rgba(191, 149, 63, 0.6),
+              0 10px 12px -5px rgba(191, 149, 63, 0.4);
+  border-color: #fff;
+}
+
+.premium-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 15px -3px rgba(191, 149, 63, 0.5);
+}
+
+/* Subtle background gradient shift */
+@keyframes goldGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* MOBILE RESPONSIVE - MAX 500PX */
+@media (max-width: 500px) {
+  .fashion-back-btn {
+  width: 25px;
+  cursor: pointer;
+  z-index: 20;
+  transform: translateY(-70px);
+  margin-left: 6vw;
+}
+.filter-box{
+  width: 55px;
+}
+  .upper {
+    padding: 30px 5% 30px;
+  }
+
+  .div {
+    /* On small screens, force a single column that fits the width perfectly */
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .img-wrapper {
+    aspect-ratio: 1 / 1.1;
+  }
+}
+@keyframes fadeinup{
+    from{
+        opacity: 0;
+        transform: translateX(-820px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+        
+    }
+
+    20% {
+        opacity: 0.5;
+        
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+        
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,132 @@
+
+.sign-box {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* Allows Footer to stay at bottom */
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8; 
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- The Reset Card --- */
+.forgot {
+  width: 100%;
+  max-width: 420px;
+  padding: 50px 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 40px auto; /* Adds spacing around the card */
+  
+  /* Initial State */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Hover Effect: Same as Login/Signup */
+.forgot:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Typography --- */
+.forgot h1 {
+  color: #1a1a1a;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 0;
+}
+
+.forgot p {
+  color: #888;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* --- Inputs --- */
+.forgot input {
+  width: 100%;
+  background: #ffffff;
+  border: 1.5px solid #eee;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.forgot input:hover {
+  border-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+.forgot input:focus {
+  border-color: #c5a059;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(197, 160, 89, 0.1);
+  transform: translateY(-2px);
+}
+
+/* --- The Submit Button --- */
+.forgot button {
+  width: 100%;
+  padding: 18px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-top: 10px;
+  
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.forgot button:hover {
+  background: #c5a059;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(197, 160, 89, 0.3);
+}
+
+.forgot button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* --- Responsive Styling --- */
+@media (max-width: 500px) {
+  .forgot {
+    padding: 40px 25px;
+    width: 85%;
+    margin: 20px auto;
+  }
+  
+  .forgot:hover {
+    transform: none; /* Better performance on mobile touch */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  }
+
+  .forgot h1 {
+    font-size: 1.6rem;
+  }
+
+  .forgot input {
+    font-size: 16px; /* Stop iOS auto-zoom */
+    padding: 14px;
+  }
+}

@@ -1,0 +1,204 @@
+/* Entrance Page Animation */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modern Light Help Center Container - Wider layout for desktop */
+.help-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+  padding: 40px 24px 60px 24px;
+  margin-top: 50px; /* Space below navbar */
+  background: radial-gradient(circle at top, #ffffff 0%, #f1f5f9 60%, #e2e8f0 100%);
+  min-height: 85vh;
+  box-sizing: border-box;
+  max-width: 1100px; /* Expanded width for large screens */
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modern Glowing Header Title */
+.help-title {
+  text-align: center;
+  margin-bottom: 45px;
+  font-size: clamp(28px, 5.5vw, 42px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #0f172a 0%, #4338ca 50%, #6d28d9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.15));
+  animation: fadeInSlide 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modern Light Shining Card Layout */
+.help-section {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  margin-bottom: 22px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+  animation: fadeInSlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Shining Light Sweep Hover Animation Effect */
+.help-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.help-section:hover::before {
+  left: 150%;
+  transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.help-section:hover {
+  transform: translateY(-4px) scale(1.005);
+  background: #ffffff;
+  box-shadow: 0 20px 35px -10px rgba(99, 102, 241, 0.18);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Image fallback styling */
+.help-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Content Area - Spacious padding for wider screens */
+.help-content {
+  padding: 26px 36px;
+  box-sizing: border-box;
+}
+
+/* Accordion Headings */
+.help-content h2 {
+  margin: 0;
+  font-size: clamp(17px, 3.5vw, 22px);
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.help-content h2:hover {
+  color: #4f46e5;
+  transform: translateX(4px);
+}
+
+/* Base Closed Paragraph State */
+.help-content .help-p {
+  margin: 0;
+  color: #64748b;
+  font-size: clamp(14px, 2.5vw, 16px);
+  line-height: 1.65;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, transform 0.3s ease, margin-top 0.3s ease;
+}
+
+/* Open Accordion States (.help-p2, .help-wish, .help-pay, .help-acc, .help-cont) */
+.help-p2,
+.help-wish,
+.help-pay,
+.help-acc,
+.help-cont {
+  margin-top: 16px;
+  color: #334155;
+  font-size: clamp(14px, 2.5vw, 16px);
+  line-height: 1.65;
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  animation: fadeInSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, transform 0.4s ease, margin-top 0.3s ease;
+}
+
+/* Inner paragraphs layout */
+.help-p2 p,
+.help-wish p,
+.help-pay p,
+.help-acc p,
+.help-cont p {
+  margin: 0 0 10px 0;
+  animation: fadeInSlide 0.5s ease forwards;
+}
+
+.help-p2 p:last-child,
+.help-wish p:last-child,
+.help-pay p:last-child,
+.help-acc p:last-child,
+.help-cont p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Optimization for Jio Mobile & Small Devices (240px - 500px) */
+@media (max-width: 500px) {
+  .help-container {
+    padding: 20px 12px 40px 12px;
+    margin-top: 25px;
+    min-height: 100vh;
+  }
+
+  .help-title {
+    font-size: 25px;
+    margin-bottom: 25px;
+    letter-spacing: normal;
+  }
+
+  .help-section {
+    margin-bottom: 14px;
+    border-radius: 14px;
+  }
+
+  .help-content {
+    padding: 18px 20px;
+  }
+
+  .help-content h2 {
+    font-size: 16px;
+  }
+
+  .help-p2,
+  .help-wish,
+  .help-pay,
+  .help-acc,
+  .help-cont {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 4px;
+    margin-top: 10px;
+  }
+}

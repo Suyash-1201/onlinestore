@@ -1,0 +1,143 @@
+import { useContext, useEffect, useEffectEvent, useState } from "react";
+import axios from "axios";
+import Mycontext from "../Mycontext";
+import { useNavigate } from "react-router-dom";
+import Api from "../Api";
+
+const API = "http://localhost:8080/user";
+
+export default function Checkout() {
+
+    let num=Number(localStorage.getItem("number"));
+  let total=localStorage.getItem("total");
+  const [amount, setAmount] = useState(total);
+  
+  const [user,setuser]=useState({});
+    const {redshow,setwrong,wrong,message,show,setcartcount,popuptext,setpopuptext,popup,setpopup,scrolltop}=useContext(Mycontext);
+
+  
+const nav=useNavigate();
+  if(num == null){
+message("User not logedin")
+show(!popup)
+    return nav("/signin")
+  }
+
+  useEffect(()=>{
+    async function fetchdata() {
+        try {
+             const res=await Api.get(`/user/getwishitems/${num}`)
+            setuser(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    fetchdata();
+  },[])
+
+  async function payNow() {
+    try {
+      // 1. Create order in Spring Boot
+      const req = await axios.post(
+        `${API}/createorder`,
+        { amount: Number(total) }
+      );
+
+      const order=req.data;
+
+      // 2. Load Razorpay Checkout script
+      if (!window.Razorpay) {
+        const script = document.createElement("script");
+        script.src =
+          "https://checkout.razorpay.com/v1/checkout.js";
+
+        document.body.appendChild(script);
+
+        await new Promise((resolve, reject) => {
+          script.onload = resolve;
+          script.onerror = reject;
+        });
+      }
+
+      // 3. Configure Razorpay
+      const options = {
+        key: order.key,
+        order_id: order.orderid,
+        amount: order.amount,
+        currency: order.currency,
+
+        handler: async function (response) {
+          // 4. Send payment details to Spring Boot
+          try {
+            const result = await axios.post(
+              `${API}/verify/payment`,
+              {
+                number:num,
+                razorpayorderid:
+                  response.razorpay_order_id,
+
+                razorpaypaymentid:
+                  response.razorpay_payment_id,
+
+                razorpaysignature:
+                  response.razorpay_signature,
+                  payfor:"order",
+                  role:"user"
+              }
+            );
+
+            message("Payment verification successful!");
+            show(!popup)
+            nav("/")
+
+            try {
+              const res=await Api.delete(`/user/deletecartitems/${num}`)
+            } catch (error) {
+              console.log(error)
+            }
+
+            try {
+              const res2=await Api.post("/user/sendmessage",
+                {number:num,message:"Order confirmed"})
+            } catch (error) {
+              console.log(error)
+            }
+
+          } catch (error) {
+            message("Payment verification failed!");
+            redshow(!wrong)
+          }
+        }
+
+
+
+      };
+
+      // 5. Open payment window
+      const checkout = new window.Razorpay(options);
+      checkout.open();
+
+    } catch (error) {
+      message("Unable to start payment.");
+      show(!popup)
+    }
+  }
+
+  return (
+    <div>
+      <h2>Razorpay Checkout</h2>
+
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
+
+      <button onClick={payNow}>
+        Pay Now
+      </button>
+
+      
+    </div>
+  );
+}

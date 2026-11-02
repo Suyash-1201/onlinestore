@@ -1,0 +1,215 @@
+html ,body{
+    background-color: white; 
+    margin-bottom: 33vh;
+}
+/* --- Global Styles --- */
+.home {
+  overflow-x: hidden;
+  transition: filter 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  background-color: #fcfcfc;
+}
+
+/* --- Hero Section --- */
+.h1-home {
+  height: 90vh;
+  background-size: cover !important;
+  background-position: center !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  transition: background 1s ease-in-out;
+  position: relative;
+  
+}
+
+.h1-home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+}
+
+.all-h1, .all-h2 {
+  position: relative;
+  z-index: 2;
+}
+
+.all-h1 h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.span1, .span2, .span3 {
+  color: #c5a059; /* Replaced --primary-gold */
+}
+
+.all-h2 h1 {
+  font-size: 1.2rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-top: 2rem;
+}
+
+.all-h2 button {
+  margin-top: 20px;
+  padding: 15px 40px;
+  background: white;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Replaced --transition */
+}
+
+.all-h2 button:hover {
+  background: #c5a059; /* Replaced --primary-gold */
+  color: white;
+}
+
+/* --- Section Headlines --- */
+.h1-3 {
+  padding: 80px 20px;
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 100px;
+}
+
+.h1-3 span {
+  font-weight: 700;
+  display: block;
+  color: #c5a059; 
+}
+
+
+
+/* --- Full Width Sections --- */
+.third, .fourth,.first,.second1 {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  
+}
+
+.third { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/chanel-2.avif'); }
+.fourth { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/nrd-D6Tu_L3chLE-unsplash.jpg'); }
+.first { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/background-fur.avif'); }
+.second1  { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/home-beauty-2.webp'); }
+
+.third-all, .fourth-all,.first-all,.second-all {
+  color: white;
+  max-width: 500px;
+}
+
+.third-all h1, .fourth-all h1,.first-all h1,.second-all h1 {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+/* --- Responsive Design --- */
+
+@media (max-width: 768px) {
+  .second {
+    grid-template-columns: 1fr;
+  }
+  
+  .furniture-second, .beauty-second {
+    height: 450px;
+  }
+
+  .third-all h1, .fourth-all h1,.first-all h1,.second1-all h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Ensuring both containers are identical in size */
+  
+
+  
+ .third, .fourth,.first,.second1{
+  height: 100lvh;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+  .h1-home {
+    height: 70vh;
+  }
+
+  .all-h1 h1 {
+    font-size: 2rem;
+  }
+
+  .fur-inner, .beauty-inner {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .fur-inner h1, .beauty-inner h1 {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* animation */
+@keyframes anima{
+    from{
+        transform: translateX(-1530px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+/* responsive */
+@media(min-height:785px) and (max-height:1024px) {
+     html ,body{
+    background-color: white; 
+     margin-bottom: 22vw;
+   
+}
+}
+
+@media(min-height:1024px){
+     html ,body{
+    background-color: white; 
+     margin-bottom: 25vh;
+   
+}
+}
+
+
+
+@media(max-height:780px) {
+     html ,body{
+    background-color: white; 
+     margin-bottom: 20vw;
+   
+}
+}
+
+@media (min-width:501px) and (max-width:840px) {
+     html ,body{
+    background-color: white; 
+     margin-bottom: 50vw;
+   
+}
+}
+
+@media(max-width:500px) {
+    html ,body{
+    background-color: white; 
+    margin-bottom: 0;
+}
+    
+}

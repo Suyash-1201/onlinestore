@@ -1,0 +1,35 @@
+:root {
+  --layer-height: 100vh;
+}
+
+.stack-container {
+  /* This ensures the container doesn't clip the sticky children */
+  overflow: visible; 
+}
+
+.layer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  
+  /* Centering content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Shadow adds depth as the next layer slides over */
+  box-shadow: 0 -20px 20px rgba(0,0,0,0.1);
+}
+
+/* Colors and Z-Index */
+.layer-1 { background: #003049; z-index: 1; }
+.layer-2 { background: #d62828; z-index: 2; }
+.layer-3 { background: #f77f00; z-index: 3; }
+.layer-4 { background: #fcbf49; z-index: 4; }
+
+h1 {
+  font-family: sans-serif;
+  font-size: 5rem;
+  color: white;
+}
