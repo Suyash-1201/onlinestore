@@ -47,9 +47,10 @@ public class securityconfig {
 	public SecurityFilterChain securitychain(HttpSecurity http) throws Exception {
 		
 		CsrfTokenRequestAttributeHandler handler=new CsrfTokenRequestAttributeHandler();
+//		csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).csrfTokenRequestHandler(handler)
 	    
 	    http.cors(Customizer.withDefaults())	
-	        .csrf(csrf -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).csrfTokenRequestHandler(handler)).
+	        .csrf(csrf ->csrf.disable()).
 	        formLogin(form->form.disable()).
 	        httpBasic(basic->basic.disable())
 	        .authorizeHttpRequests(auth -> auth

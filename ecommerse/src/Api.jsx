@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 
 const Api = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "https://onlinestore-2-p31i.onrender.com",
     withCredentials: true
 });
 
