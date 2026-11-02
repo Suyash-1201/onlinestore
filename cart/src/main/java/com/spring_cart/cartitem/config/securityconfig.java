@@ -54,7 +54,7 @@ public class securityconfig {
 	        formLogin(form->form.disable()).
 	        httpBasic(basic->basic.disable())
 	        .authorizeHttpRequests(auth -> auth
-	            .requestMatchers("/user/verify/premium").hasRole("premium").requestMatchers("/user/verify/otpadmin").hasRole("admin")
+	            .requestMatchers("/user/verify/premium").hasRole("premium")
 //	            requestMatchers("/user/verify/otpadmin").hasRole("admin")
 	            .anyRequest().permitAll()
 	        )
