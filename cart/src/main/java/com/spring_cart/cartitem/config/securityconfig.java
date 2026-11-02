@@ -67,7 +67,7 @@ public class securityconfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 	    CorsConfiguration configuration = new CorsConfiguration();
 	    // Use your exact frontend URL (do NOT use "*" when allowCredentials is true)
-	    configuration.setAllowedOrigins( List.of( "http://localhost:5173","http://127.0.0.1:5173","http://localhost:3000")); 
+	    configuration.setAllowedOrigins( List.of( "http://localhost:5173","http://127.0.0.1:5173","https://onlinestore-three-kappa.vercel.app","http://localhost:3000")); 
 	    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 	    configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type","X-XSRF-TOKEN", "X-Requested-With"));
 	    configuration.setAllowCredentials(true); // <--- Crucial for cookies!
