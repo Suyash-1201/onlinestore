@@ -419,7 +419,7 @@ color: black;
     letter-spacing: 2px;
     background-color: rgba(252, 252, 252);
     padding: 3vw 6vw;
-    width: 50vw;
+    width: 50%;
     z-index: 950;
     
    
@@ -438,7 +438,7 @@ color: black;
     align-items: center;
 }
 .success-popup h1 img{
-    width: 20px;
+    width: 1rem;
     margin-right: 3px;
 }
     .online-store{

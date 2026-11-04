@@ -284,9 +284,22 @@
     width: 100%;
     padding: 12px 0;
   }
+
+  .free h1{
+    font-size: 70%;
+  }
+  .free img{
+    width: 8%;
+  }
 }
 
 @media (max-width: 400px) {
+  .free h1{
+    font-size: 80%;
+  }
+  .free img{
+    width: 10%;
+  }
   .cart {
     padding: 15px;
   }
