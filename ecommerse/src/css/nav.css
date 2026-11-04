@@ -413,13 +413,19 @@ color: black;
     }
 } */
 
+@media (min-width:495){
+.success-popup{
+    width: auto;
+}
+}
+
 @media(max-width:500px) {
 
 .success-popup{
     letter-spacing: 2px;
     background-color: rgba(252, 252, 252);
     padding: 3vw 6vw;
-    width: 50%;
+    width: auto;
     z-index: 950;
     
    
